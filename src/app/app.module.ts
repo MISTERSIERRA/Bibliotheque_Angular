@@ -1,6 +1,10 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { DonneesService } from './services/donnees-services';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,7 +31,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     AppRoutingModule,
     LayoutModule,
   ],
-  providers: [],
+  providers: [
+    DonneesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
