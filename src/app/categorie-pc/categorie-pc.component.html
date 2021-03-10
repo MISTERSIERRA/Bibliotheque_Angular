@@ -1,0 +1,21 @@
+<div *ngIf="showContainer === false">
+    <div class="container">
+        <h2 class="text-center card-footer">Categorie</h2>
+        <button type="button" class="btn btn-link"></button>
+    </div>  
+
+    <ul class="d-flex flex-row container">    
+         <li class="nav-link mix-auto container">
+          <a class="nav-link mix-auto container" aria-current="page" href="#"><img src="assets/all-content/icons/categori.png">Album</a>
+    </li>
+    <li class="nav-link mix-auto container">
+          <a class="nav-link mix-auto container" href="#"><img src="assets/all-content/icons/categori.png">Serie</a>
+    </li>
+    <li class="nav-link mix-auto container">
+          <a class="nav-link mix-auto container" href="#"><img src="assets/all-content/icons/categori.png"> Auteur</a>
+    </li>
+  </ul>
+</div>
+
+<div class="remplacement" *ngIf="showContainer === true"></div>
+
