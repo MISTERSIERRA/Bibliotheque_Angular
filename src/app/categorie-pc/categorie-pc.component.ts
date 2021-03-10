@@ -9,9 +9,9 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 export class CategoriePcComponent implements OnInit {
 
   public showContainer: boolean;
-  constructor(public breakpointObserver: BreakpointObserver) {}
+  constructor(public breakpointObserver: BreakpointObserver) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.breakpointObserver
       .observe(['(min-width: 992px)'])
       .subscribe((state: BreakpointState) => {
@@ -22,4 +22,5 @@ export class CategoriePcComponent implements OnInit {
         }
       });
   }
+
 }

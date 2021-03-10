@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "afpa-mission3": {
+    "afpa-mission3-v2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/afpa-mission3",
+            "outputPath": "dist/afpa-mission3-v2",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,9 +31,7 @@
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "./src/styles.scss"
             ],
-            "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -68,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "afpa-mission3:build"
+            "browserTarget": "afpa-mission3-v2:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "afpa-mission3:build:production"
+              "browserTarget": "afpa-mission3-v2:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "afpa-mission3:build"
+            "browserTarget": "afpa-mission3-v2:build"
           }
         },
         "test": {
@@ -116,16 +114,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "afpa-mission3:serve"
+            "devServerTarget": "afpa-mission3-v2:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "afpa-mission3:serve:production"
+              "devServerTarget": "afpa-mission3-v2:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "afpa-mission3"
+  "defaultProject": "afpa-mission3-v2"
 }

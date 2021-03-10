@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'afpa-mission3'`, () => {
+  it(`should have as title 'afpa-mission3-v2'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('afpa-mission3');
+    expect(app.title).toEqual('afpa-mission3-v2');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('afpa-mission3 app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('afpa-mission3-v2 app is running!');
   });
 });

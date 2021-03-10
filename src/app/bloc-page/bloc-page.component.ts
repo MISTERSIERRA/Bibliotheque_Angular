@@ -9,11 +9,11 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 export class BlocPageComponent implements OnInit {
 
   public showContainer2: boolean;
-  constructor(public breakpointObserver: BreakpointObserver) {}
+  constructor(public breakpointObserver: BreakpointObserver) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.breakpointObserver
-      .observe(['(min-width: 992px)'])
+    .observe(['(min-width: 992px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
           this.showContainer2 = true;
