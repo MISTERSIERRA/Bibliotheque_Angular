@@ -1,1 +1,21 @@
 
+<div class="container">
+    <div class="row NGSjustify-content-center NScentrage_G_D NGScontainer">
+  
+  <div class="NGSminiature" 
+  *ngFor="let elementDeMap of this.recup_guide_index_for" 
+  >
+
+    <img src="{{livreSRC}}" alt="" class="NGSpicture">
+    <p class="text-center NGSpicture">{{recup_livreNumeroGuide}}-{{recup_livreNumeroVolume}}-{{recup_livreTitre}}</p>
+
+  </div>
+  
+    </div>
+</div>
+<!--
+[recuplivreSRC]="this.recup_generer_url_mini(elementDeMap)" 
+  [recuplivreNumeroGuide]="elementDeMap" 
+  [recuplivreTitre]="this.recuperer_albums_un_titre(elementDeMap)"
+  [recuplivreNumeroVolume]="this.recuperer_albums_un_numero(elementDeMap)"
+-->
