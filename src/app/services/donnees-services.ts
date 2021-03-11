@@ -948,6 +948,13 @@ constructor() {
       return url_mini_corrige;
   }
   //*************************************************************************
+    generer_nom_auteurs(guide_index) {
+    return this.recuperer_auteurs_un_nom(this.recuperer_albums_un_idAuteur(guide_index));
+    }
+    generer_nom_series(guide_index) {
+    return this.recuperer_series_un_nom(this.recuperer_albums_un_idSerie(guide_index));
+    }
+  //*************************************************************************
   generer_url_grand(guide_index) {
       const url_grand = "assets/all-content/albums/" + 
       this.recuperer_series_un_nom(this.recuperer_albums_un_idSerie(guide_index)) + "-" + 

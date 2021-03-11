@@ -6,9 +6,10 @@
       *ngFor="let elementDeMap of this.recup_guide_index_for" 
       [livreNumeroGuide]="elementDeMap" 
       [recuplivreTitre]="this.appeller_recuperer_albums_un_titre(elementDeMap)" 
-      [recuplivreSerie]="this.appeller_recuperer_series_un_nom(elementDeMap)" 
-      [recuplivreAuteur]="this.appeller_recuperer_auteurs_un_nom(elementDeMap)" 
-      [recuplivreNumeroVolume]="this.appeller_recuperer_albums_un_numero(elementDeMap)">
+      [recuplivreSerie]="this.appeller_generer_nom_series(elementDeMap)" 
+      [recuplivreAuteur]="this.appeller_generer_nom_auteurs(elementDeMap)" 
+      [recuplivreNumeroVolume]="this.appeller_recuperer_albums_un_numero(elementDeMap)" 
+      [recuplivreSRC]="appeller_generer_url_mini(elementDeMap)">
       </app-miniature-mini>
   
     </div>

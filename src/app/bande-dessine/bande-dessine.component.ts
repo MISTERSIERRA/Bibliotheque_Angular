@@ -15,30 +15,27 @@ export class BandeDessineComponent implements OnInit {
    }
 
   appeller_recuperer_albums_un_titre(guide) {
-    console.log("recuperer_albums_un_titre");
+    //console.log("guide album titre : " + guide);
     return this.donneesServices.recuperer_albums_un_titre(guide);
   }
-  appeller_recuperer_series_un_nom(guide) {
-    console.log("recuperer_series_un_nom");
-    return this.donneesServices.recuperer_series_un_nom(guide);
+  appeller_generer_nom_series(guide) {
+    //console.log("guide series nom : " + guide);
+    return this.donneesServices.generer_nom_series(guide);
   }
-  appeller_recuperer_auteurs_un_nom(guide) {
-    console.log("recuperer_auteurs_un_nom");
-    return this.donneesServices.recuperer_auteurs_un_nom(guide);
+  appeller_generer_nom_auteurs(guide) {
+    //console.log("guide auteurs nom : " + guide);
+    return this.donneesServices.generer_nom_auteurs(guide);
   }
   appeller_recuperer_albums_un_numero(guide) {
-    console.log("recuperer_albums_un_numero");
+    //console.log("guide album numero : " + guide);
     return this.donneesServices.recuperer_albums_un_numero(guide);
   }
   appeller_generer_url_mini(guide) {
-    console.log("generer_url_mini");
+    //console.log("guide url mini : " + guide);
     return this.donneesServices.generer_url_mini(guide);
   }
 
   ngOnInit() {
-    console.log("debut");
-    console.log(this.recup_guide_index_for);
-    console.log("fin");
   }
 
 }
