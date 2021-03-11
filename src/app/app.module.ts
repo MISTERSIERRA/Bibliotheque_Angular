@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { DonneesService } from './services/donnees-services';
+import { DonneesServices } from './services/donnees-services';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { CategorieMoblieComponent } from './categorie-moblie/categorie-moblie.co
 import { BandeDessineComponent } from './bande-dessine/bande-dessine.component';
 import { BlocPageComponent } from './bloc-page/bloc-page.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { MiniatureMiniComponent } from './miniature-mini/miniature-mini.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     CategorieMoblieComponent,
     BandeDessineComponent,
     BlocPageComponent,
+    MiniatureMiniComponent,
   ],
   
   imports: [
@@ -32,7 +34,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     LayoutModule,
   ],
   providers: [
-    DonneesService
+    DonneesServices
   ],
   bootstrap: [AppComponent]
 })

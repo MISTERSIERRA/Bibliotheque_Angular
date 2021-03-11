@@ -1,14 +1,12 @@
-import { OnInit } from '@angular/core';
-
 interface ISerie {
     nom: string;
 }
   
-  interface IAuteur {
+interface IAuteur {
     nom: string;
 }
   
-  interface IAlbum {
+interface IAlbum {
     titre: string;
     numero: string;
     idSerie: string;
@@ -16,15 +14,15 @@ interface ISerie {
     prix: string;
 }
 
-export class DonneesService implements OnInit {
+export class DonneesServices {
 
 /***************************COMPONENT**********************************/ 
 
 constructor() {
     this.setInitialData();
+    this.guide_index_for = this.recuperer_toutes_les_cles(this.albums);
   }
   
-  ngOnInit() {this.guide_index_for = this.recuperer_toutes_les_cles(this.albums);}
   
   /************************************************************************************************/
   //npx ts-node service.simulation.ts
