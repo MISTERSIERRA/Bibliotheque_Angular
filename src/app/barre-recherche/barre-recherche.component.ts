@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-barre-recherche',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarreRechercheComponent implements OnInit {
 
+  @Input() valeur_entree = "test entree";
+
   name: string;
   onNameSubmitted(name: string) {
-    this.name = name;
+    console.log(this.name = name);
+  }
+
+  onButtonSubmitted() {
+    console.log("valeur_entree");
   }
 
   constructor() { }
