@@ -3,19 +3,37 @@
     <div class="row NGSjustify-content-center NScentrage_G_D NGScontainer">
   
   <div class="NGSminiature" 
+<<<<<<< Updated upstream
   *ngFor="let elementDeMap of this.recup_guide_index_for" 
   >
 
     <img src="{{livreSRC}}" alt="" class="NGSpicture">
     <p class="text-center NGSpicture">{{recup_livreNumeroGuide}}-{{recup_livreNumeroVolume}}-{{recup_livreTitre}}</p>
+=======
+  *ngFor="let elementDeMap of this.guide_index_for" 
+  [recuplivreSRC]="this.generer_url_mini(elementDeMap)" 
+  [recuplivreNumeroGuide]="elementDeMap" 
+  [recuplivreTitre]="this.recuperer_albums_un_titre(elementDeMap)"
+  [recuplivreNumeroVolume]="this.recuperer_albums_un_numero(elementDeMap)">
+
+    <img src="{{livreSRC}}" alt="" class="NGSpicture">
+    <p class="text-center NGSpicture">{{recuplivreNumeroGuide}}-{{recuplivreNumeroVolume}}-{{recuplivreTitre}}</p>
+>>>>>>> Stashed changes
 
   </div>
   
     </div>
 </div>
+<<<<<<< Updated upstream
 <!--
 [recuplivreSRC]="this.recup_generer_url_mini(elementDeMap)" 
   [recuplivreNumeroGuide]="elementDeMap" 
   [recuplivreTitre]="this.recuperer_albums_un_titre(elementDeMap)"
   [recuplivreNumeroVolume]="this.recuperer_albums_un_numero(elementDeMap)"
 -->
+=======
+
+
+
+
+>>>>>>> Stashed changes

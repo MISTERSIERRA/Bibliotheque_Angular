@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DonneesService } from '../services/donnees-services';
 
 @Component({
   selector: 'app-bande-dessine',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BandeDessineComponent implements OnInit {
 
-  constructor() { }
+  constructor(private donneesService: DonneesService) { }
+
+  recuplivreNumeroGuide = "nombreGuide";
+  recuplivreTitre = "inconnu";
+  recuplivreSerie = "inconnu";
+  recuplivreAuteur = "inconnu";
+  recuplivreNumeroVolume = "inconnu";
+  recuplivreSRC = "inconnu";
+
 
   ngOnInit(): void {
   }
