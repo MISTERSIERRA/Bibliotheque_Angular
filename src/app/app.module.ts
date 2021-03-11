@@ -20,6 +20,7 @@ import { BlocPageComponent } from './bloc-page/bloc-page.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MiniatureMiniComponent } from './miniature-mini/miniature-mini.component';
 import { PagePanierComponent } from './page-panier/page-panier.component';
+import { HeaderMeteoComponent } from './header-meteo/header-meteo.component';
 
 const appRoutes: Routes = [
   //{ path: 'appareil', canActivate: [AuthGuard], component: AppareilViewComponent }, 
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     BandeDessineComponent,
     BlocPageComponent,
     MiniatureMiniComponent,
-    PagePanierComponent
+    PagePanierComponent,
+    HeaderMeteoComponent
   ],
   
   imports: [
