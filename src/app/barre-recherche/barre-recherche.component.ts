@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DonneesServices } from '../services/donnees-services';
 
 @Component({
   selector: 'app-barre-recherche',
@@ -6,6 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./barre-recherche.component.scss']
 })
 export class BarreRechercheComponent implements OnInit {
+
+  constructor(private donneesServices: DonneesServices) { }
+
+  ngOnInit(): void {
+  }
 
   @Input() valeur_entree = "test entree";
 
@@ -15,12 +21,8 @@ export class BarreRechercheComponent implements OnInit {
   }
 
   onButtonSubmitted() {
-    console.log("valeur_entree");
-  }
-
-  constructor() { }
-
-  ngOnInit(): void {
+    console.log("bouton entrer");
+    this.donneesServices.guide_index_for = ["1", "2", "3", "4"];
   }
 
 }
