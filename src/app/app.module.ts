@@ -21,14 +21,19 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MiniatureMiniComponent } from './miniature-mini/miniature-mini.component';
 import { PagePanierComponent } from './page-panier/page-panier.component';
 import { HeaderMeteoComponent } from './header-meteo/header-meteo.component';
+import { DetailLivreComponent } from './detail-livre/detail-livre.component';
+import { LoginComponent } from './login/login.component';
+import { AfficherCompteComponent } from './afficher-compte/afficher-compte.component';
+import { DetailMeteoComponent } from './detail-meteo/detail-meteo.component';
 
 const appRoutes: Routes = [
   //{ path: 'appareil', canActivate: [AuthGuard], component: AppareilViewComponent }, 
   { path: 'accueil', component: BandeDessineComponent }, 
-  //{ path: 'detailLivre', component: AuthComponent }, //a creer
-  //{ path: 'afficherlogin', component: AuthComponent }, //a creer
-  //{ path: 'affichercompte', component: AuthComponent }, //a creer
-  { path: 'afficherpanier', component: PagePanierComponent }, 
+  { path: 'detailLivre', component: DetailLivreComponent }, 
+  { path: 'afficherlogin', component: LoginComponent }, 
+  { path: 'affichercompte', canActivate: [AuthGuard], component: AfficherCompteComponent }, 
+  { path: 'afficherpanier', component: PagePanierComponent },
+  { path: 'detailMeteo', component: DetailMeteoComponent },  
   { path: '', component: BandeDessineComponent }, 
   { path: 'not-found', component: BandeDessineComponent }, 
   { path: '**', redirectTo: '/not-found' } /* celle la toujours en dernier */
@@ -46,7 +51,11 @@ const appRoutes: Routes = [
     BlocPageComponent,
     MiniatureMiniComponent,
     PagePanierComponent,
-    HeaderMeteoComponent
+    HeaderMeteoComponent,
+    DetailLivreComponent,
+    LoginComponent,
+    AfficherCompteComponent,
+    DetailMeteoComponent
   ],
   
   imports: [
