@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-miniature-mini',
@@ -19,5 +20,9 @@ export class MiniatureMiniComponent implements OnInit {
   @Input() recuplivreNumeroVolume = "inconnu";
   @Input() recuplivreSRC = "inconnu";
   
+
+  detectionClick() {
+    console.log('Miniature cliqué');
+  }
 
 }

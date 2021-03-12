@@ -5,10 +5,10 @@
       <app-miniature-mini class="NGSminiature" 
       *ngFor="let elementDeMap of this.recup_guide_index_for" 
       [livreNumeroGuide]="elementDeMap" 
-      [recuplivreTitre]="this.appeller_recuperer_albums_un_titre(elementDeMap)" 
-      [recuplivreSerie]="this.appeller_generer_nom_series(elementDeMap)" 
-      [recuplivreAuteur]="this.appeller_generer_nom_auteurs(elementDeMap)" 
-      [recuplivreNumeroVolume]="this.appeller_recuperer_albums_un_numero(elementDeMap)" 
+      [recuplivreTitre]="appeller_recuperer_albums_un_titre(elementDeMap)" 
+      [recuplivreSerie]="appeller_generer_nom_series(elementDeMap)" 
+      [recuplivreAuteur]="appeller_generer_nom_auteurs(elementDeMap)" 
+      [recuplivreNumeroVolume]="appeller_recuperer_albums_un_numero(elementDeMap)" 
       [recuplivreSRC]="appeller_generer_url_mini(elementDeMap)">
       </app-miniature-mini>
   
