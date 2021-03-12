@@ -1,13 +1,10 @@
 <div class="container d-flex">
 
     
-    <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" (keydown.enter)="onNameSubmitted($event.target.value)">
-
-    <p> {{ name }} </p>
-    
+    <input class="form-control me-2" type="searh" placeholder="Rechercher" aria-label="Search" 
+    (keydown.enter)="onNameSubmitted($event.target.value)">
 
 
-
-    <button class="btn btn-info">Entrer</button>
+    <button class="btn btn-info" (click)="onButtonSubmitted()">Entrer</button>
 
 </div>

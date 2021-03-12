@@ -1,1 +1,22 @@
 
+<div class="container reglageBd">
+    <div class="row NGSjustify-content-center NScentrage_G_D NGScontainer">
+  
+      <app-miniature-mini class="NGSminiature" 
+      *ngFor="let elementDeMap of this.recup_guide_index_for" 
+      [livreNumeroGuide]="elementDeMap" 
+      [recuplivreTitre]="this.appeller_recuperer_albums_un_titre(elementDeMap)" 
+      [recuplivreSerie]="this.appeller_generer_nom_series(elementDeMap)" 
+      [recuplivreAuteur]="this.appeller_generer_nom_auteurs(elementDeMap)" 
+      [recuplivreNumeroVolume]="this.appeller_recuperer_albums_un_numero(elementDeMap)" 
+      [recuplivreSRC]="appeller_generer_url_mini(elementDeMap)">
+      </app-miniature-mini>
+  
+    </div>
+</div>
+<!--
+[recuplivreSRC]="this.recup_generer_url_mini(elementDeMap)" 
+  [recuplivreNumeroGuide]="elementDeMap" 
+  [recuplivreTitre]="this.recuperer_albums_un_titre(elementDeMap)"
+  [recuplivreNumeroVolume]="this.recuperer_albums_un_numero(elementDeMap)"
+-->

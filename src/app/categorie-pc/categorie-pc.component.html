@@ -1,20 +1,33 @@
-<div *ngIf="showContainer === false">
-    <div class="container">
+<div *ngIf="showContainer === false" class="NScentrage_G_D">
+      <div class="container">
         <h2 class="text-center card-footer">Categorie</h2>
         <button type="button" class="btn btn-link"></button>
-    </div>  
+      </div>
 
-    <ul class="d-flex flex-row container">    
-         <li class="nav-link mix-auto container">
-          <a class="nav-link mix-auto container" aria-current="page" href="#"><img src="assets/all-content/icons/categori.png">Album</a>
+<div class="NGSlimite_largeur NScentrage_G_D">
+    <ul class="d-flex flex-row container">  
+
+         <li class="d-flex nav-link mix-auto container NGS_flex1 NGSjustify-content-center">
+          <a class="nav-link mix-auto container NGS_flex1" aria-current="page" href="#">
+            <img src="assets/all-content/icons/categori.png" class="NGSlimite_largeur">
+            <span class="NGSjustify-content-center">Album</span></a>
+      </li>
+
+    <li class="d-flex nav-link mix-auto container NGS_flex1 NGSjustify-content-center">
+          <a class="nav-link mix-auto container NGS_flex1" aria-current="page" href="#">
+            <img src="assets/all-content/icons/categori.png" class="NGSlimite_largeur">
+            <span class="NGSjustify-content-center">Serie</span></a>
     </li>
-    <li class="nav-link mix-auto container">
-          <a class="nav-link mix-auto container" href="#"><img src="assets/all-content/icons/categori.png">Serie</a>
+
+    <li class="d-flex nav-link mix-auto container NGS_flex1 NGSjustify-content-center">
+          <a class="nav-link mix-auto container NGS_flex1" aria-current="page" href="#">
+            <img src="assets/all-content/icons/categori.png" class="NGSlimite_largeur">
+            <span class="NGSjustify-content-center">Auteur</span></a>
     </li>
-    <li class="nav-link mix-auto container">
-          <a class="nav-link mix-auto container" href="#"><img src="assets/all-content/icons/categori.png"> Auteur</a>
-    </li>
-  </ul>
+
+   </ul>
+</div>
+
 </div>
 
 <div class="remplacement" *ngIf="showContainer === true"></div>
