@@ -18,11 +18,20 @@ export class BarreRechercheComponent implements OnInit {
   name: string;
   onNameSubmitted(name: string) {
     console.log(this.name = name);
+    this.donneesServices.input_recherche = name;
+    console.log("variable service : " + this.donneesServices.input_recherche);
   }
 
   onButtonSubmitted() {
     console.log("bouton entrer");
-    this.donneesServices.guide_index_for = ["1", "2", "3", "4"];
+    this.donneesServices.input_recherche = this.name;
+    console.log(this.donneesServices.input_recherche);
+  }
+
+  onInstantSubmitted(name: string) {
+      this.name += name;
+      console.log(name);
+
   }
 
 }
