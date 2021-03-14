@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DonneesServices } from '../services/donnees-services';
+import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-barre-recherche',
@@ -26,9 +28,11 @@ export class BarreRechercheComponent implements OnInit {
 
   //avec touches
   onInstantSubmitted(name: string) {
-      this.name += name;
-      console.log(name);
-
+    console.log("touche : " + name);
+    if (name.length < 2) {//recuperer uniquement les touches à un caractère
+      this.name += name;//pour éliminer les touches système
+      console.log("retenu : " + name);
+    }
   }
   //avec bouton entrer
   onButtonSubmitted() {

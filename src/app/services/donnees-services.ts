@@ -1,3 +1,6 @@
+import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
+
 interface ISerie {
     nom: string;
 }
