@@ -2,8 +2,11 @@ import { DonneesServices } from './services/donnees-services';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
