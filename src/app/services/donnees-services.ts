@@ -814,7 +814,9 @@ constructor() {
   //declaration variables
   guide_index_for = [];
   input_recherche = ""; // variable pour récupérer la valeur de input
-  guideIndexSubject = new Subject<any>();
+  guideIndexSubject$ = new Subject<any>();//observable 1 pour déclencher rafraichissement d'affichage selon le nouveau guide
+  categoriesBouton$ = new Subject<any>();//observable 2 pour déclencher rafraichissement page catégorie
+  tableauCategorie = ["Morceaux choisis !", "Contre attaque en Carmélie", "L'or des trolls"];
   //compteur_nombre_recherche = 0;
 
   
@@ -982,7 +984,7 @@ constructor() {
     console.log("maj du guide");
     //this.compteur_nombre_recherche += 1;
     this.guide_index_for = this.rechercher_un_mot(this.input_recherche);
-    this.guideIndexSubject.next(); //(this.compteur_nombre_recherche)
+    this.guideIndexSubject$.next(); //(this.compteur_nombre_recherche)
     //la ligne next à la fin pour prendre tous les changements en compte
   }
 
