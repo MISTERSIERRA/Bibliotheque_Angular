@@ -45,11 +45,11 @@ export class BandeDessineComponent implements OnInit {
     subscribe(
 
       (nouveau_guide) => {
-        console.log(nouveau_guide.slice());
+        console.log("compteur : " + nouveau_guide);
         //console.log(typeof(nouveau_guide.slice()));
         //console.log(typeof(this.recup_guide_index_for.slice()));
-        this.recup_guide_index_for = this.donneesServices.mise_a_jour_du_guide;
-        //console.log(this.recup_guide_index_for);
+        this.recup_guide_index_for = this.donneesServices.guide_index_for;
+        console.log(this.recup_guide_index_for);
       }, //pour chaque next 
 
       () => {console.log("erreur de subscribe");}, //en cas d'erreur
