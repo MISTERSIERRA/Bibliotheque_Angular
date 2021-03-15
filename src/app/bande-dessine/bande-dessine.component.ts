@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DonneesServices } from '../services/donnees-services';
+import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-bande-dessine',
@@ -8,7 +11,9 @@ import { DonneesServices } from '../services/donnees-services';
 })
 export class BandeDessineComponent implements OnInit {
 
-  recup_guide_index_for = [];
+  recup_guide_index_for = [""];
+
+  surveillance_du_guide_Subscription: Subscription;
 
   constructor(private donneesServices: DonneesServices) {
     this.recup_guide_index_for = this.donneesServices.guide_index_for;
@@ -36,6 +41,20 @@ export class BandeDessineComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.surveillance_du_guide_Subscription = this.donneesServices.guideIndexSubject.
+    subscribe(
+
+      (nouveau_guide) => {
+        console.log(nouveau_guide.slice());
+        //console.log(typeof(nouveau_guide.slice()));
+        //console.log(typeof(this.recup_guide_index_for.slice()));
+        this.recup_guide_index_for = this.donneesServices.mise_a_jour_du_guide;
+        //console.log(this.recup_guide_index_for);
+      }, //pour chaque next 
+
+      () => {console.log("erreur de subscribe");}, //en cas d'erreur
+      () => {console.log("subscribe terminé");}, //en cas de complet
+    );
   }
 
 }
