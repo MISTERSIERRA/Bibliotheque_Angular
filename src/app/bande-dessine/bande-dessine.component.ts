@@ -41,7 +41,7 @@ export class BandeDessineComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.surveillance_du_guide_Subscription = this.donneesServices.guideIndexSubject.
+    this.surveillance_du_guide_Subscription = this.donneesServices.guideIndexSubject$.
     subscribe(
 
       (nouveau_guide) => {
@@ -53,7 +53,7 @@ export class BandeDessineComponent implements OnInit {
       }, //pour chaque next 
 
       () => {console.log("erreur de subscribe");}, //en cas d'erreur
-      () => {console.log("subscribe terminé");}, //en cas de complet
+      () => {console.log("subscribe terminé");} //en cas de complet
     );
   }
 
