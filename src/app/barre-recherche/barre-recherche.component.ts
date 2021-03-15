@@ -44,6 +44,7 @@ export class BarreRechercheComponent implements OnInit {
     /***********************************************************/
 
     //this.name = .......input.....
+    this.name = (<HTMLInputElement>document.getElementById('recupValeurBtn')).value;
 
     /***********************************************************/
     this.donneesServices.input_recherche = this.name;
