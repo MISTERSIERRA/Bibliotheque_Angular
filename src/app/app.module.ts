@@ -5,8 +5,8 @@ import { AuthService } from './services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { Observable } from 'rxjs';
-import { Subscription } from 'rxjs';
+//import { Observable } from 'rxjs';
+//import { Subscription } from 'rxjs';
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -65,6 +65,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
+    FormsModule, 
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
