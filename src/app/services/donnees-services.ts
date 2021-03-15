@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 
 interface ISerie {
     nom: string;
@@ -813,6 +814,8 @@ constructor() {
   //declaration variables
   guide_index_for = [];
   input_recherche = ""; // variable pour récupérer la valeur de input
+  guideIndexSubject = new Subject<any[]>();
+
   
   
   //declaration fonctions degre 1
@@ -972,6 +975,14 @@ constructor() {
       replace("O.P.A.", "OPA").replace("I.N.R.I.", "INRI");
       return url_grand_corrige;
   }
+
+  //fonction pour observable
+  mise_a_jour_du_guide() {
+    console.log("maj du guide");
+    this.guideIndexSubject.next(this.rechercher_un_mot(this.input_recherche));
+  }
+
+
   //*************************************************************************
   
   

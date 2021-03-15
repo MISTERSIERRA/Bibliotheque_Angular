@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DonneesServices } from '../services/donnees-services';
 import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-barre-recherche',
@@ -12,7 +13,7 @@ export class BarreRechercheComponent implements OnInit {
 
   constructor(private donneesServices: DonneesServices) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   @Input() valeur_entree = "test entree";
@@ -23,7 +24,8 @@ export class BarreRechercheComponent implements OnInit {
   onNameSubmitted(name: string) {
     console.log(this.name = name);
     this.donneesServices.input_recherche = name;
-    console.log("variable service : " + this.donneesServices.input_recherche);
+    console.log("mot recherché : " + this.donneesServices.input_recherche);
+    this.donneesServices.mise_a_jour_du_guide();
   }
 
   //avec touches
@@ -31,14 +33,15 @@ export class BarreRechercheComponent implements OnInit {
     console.log("touche : " + name);
     if (name.length < 2) {//recuperer uniquement les touches à un caractère
       this.name += name;//pour éliminer les touches système
-      console.log("retenu : " + name);
     }
+    console.log("retenu : " + this.name);
   }
   //avec bouton entrer
   onButtonSubmitted() {
-    console.log("bouton entrer");
+    console.log("appui bouton");
     this.donneesServices.input_recherche = this.name;
     console.log(this.donneesServices.input_recherche);
+    this.donneesServices.mise_a_jour_du_guide();
   }
 
 }
