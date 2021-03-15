@@ -27,6 +27,7 @@ export class BarreRechercheComponent implements OnInit {
     this.donneesServices.input_recherche = this.name;
     console.log("fonction 1 : " + this.donneesServices.input_recherche);
     this.donneesServices.mise_a_jour_du_guide();
+    this.name = "";
   }
 
   //avec touches NE PAS PRENDRE EN COMPTE
@@ -50,6 +51,7 @@ export class BarreRechercheComponent implements OnInit {
     this.donneesServices.input_recherche = this.name;
     console.log("fonction 3 : " + this.donneesServices.input_recherche);
     this.donneesServices.mise_a_jour_du_guide();
+    this.name = "";
   }
 
 }
