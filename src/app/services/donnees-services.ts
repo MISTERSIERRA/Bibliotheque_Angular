@@ -814,7 +814,8 @@ constructor() {
   //declaration variables
   guide_index_for = [];
   input_recherche = ""; // variable pour récupérer la valeur de input
-  guideIndexSubject = new Subject<any[]>();
+  guideIndexSubject = new Subject<any>();
+  compteur_nombre_recherche = 0;
 
   
   
@@ -979,7 +980,10 @@ constructor() {
   //fonction pour observable
   mise_a_jour_du_guide() {
     console.log("maj du guide");
-    this.guideIndexSubject.next(this.rechercher_un_mot(this.input_recherche));
+    this.compteur_nombre_recherche += 1;
+    this.guide_index_for = this.rechercher_un_mot(this.input_recherche);
+    this.guideIndexSubject.next(this.compteur_nombre_recherche);
+    //la ligne next à la fin pour prendre tous les changements en compte
   }
 
 

@@ -22,25 +22,32 @@ export class BarreRechercheComponent implements OnInit {
 
   //avec touche entrer
   onNameSubmitted(name: string) {
-    console.log(this.name = name);
-    this.donneesServices.input_recherche = name;
-    console.log("mot recherché : " + this.donneesServices.input_recherche);
+    this.name = name;
+    console.log(this.name);
+    this.donneesServices.input_recherche = this.name;
+    console.log("fonction 1 : " + this.donneesServices.input_recherche);
     this.donneesServices.mise_a_jour_du_guide();
   }
 
-  //avec touches
-  onInstantSubmitted(name: string) {
-    console.log("touche : " + name);
-    if (name.length < 2) {//recuperer uniquement les touches à un caractère
-      this.name += name;//pour éliminer les touches système
-    }
-    console.log("retenu : " + this.name);
-  }
+  //avec touches NE PAS PRENDRE EN COMPTE
+  //onInstantSubmitted(name: string) {
+    //console.log("touche : " + name);
+    //if (name.length < 2) {//recuperer uniquement les touches à un caractère
+      //this.name += name;//pour éliminer les touches système
+    //}
+    //console.log("retenu : " + this.name);
+  //}
+
   //avec bouton entrer
   onButtonSubmitted() {
     console.log("appui bouton");
+    /***********************************************************/
+
+    //this.name = .......input.....
+
+    /***********************************************************/
     this.donneesServices.input_recherche = this.name;
-    console.log(this.donneesServices.input_recherche);
+    console.log("fonction 3 : " + this.donneesServices.input_recherche);
     this.donneesServices.mise_a_jour_du_guide();
   }
 
