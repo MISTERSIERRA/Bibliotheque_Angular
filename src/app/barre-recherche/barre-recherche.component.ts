@@ -43,9 +43,7 @@ export class BarreRechercheComponent implements OnInit {
   onButtonSubmitted() {
     console.log("appui bouton");
     /***********************************************************/
-
-    //this.name = .......input.....
-
+    this.name = (<HTMLInputElement>document.getElementById('recupValeurBtn')).value;
     /***********************************************************/
     this.donneesServices.input_recherche = this.name;
     console.log("fonction 3 : " + this.donneesServices.input_recherche);
