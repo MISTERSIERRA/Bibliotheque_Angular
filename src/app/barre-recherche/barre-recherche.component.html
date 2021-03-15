@@ -1,8 +1,10 @@
 <div class="container d-flex">
 
     
+
     <input class="form-control me-2" type="searh" placeholder="Rechercher" aria-label="Search" id="recupValeurBtn"  
     (keydown.enter)="onNameSubmitted($event.target.value)">
+
     <!--(keydown)="onInstantSubmitted($event.key)" -->
 
     <button class="btn btn-info" (click)="onButtonSubmitted()">Entrer</button>
