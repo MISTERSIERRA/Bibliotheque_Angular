@@ -1,5 +1,5 @@
 <div class="maListe">
     <ul>
-        <li *ngFor="let duplicateList of leTableauTest"><a>{{duplicateList}}</a></li>
+        <li *ngFor="let duplicateList of leTableauTest"><a routerLink="/accueil" (click)="rechercheRedirection(duplicateList)">{{duplicateList}}</a></li>
     </ul>
 </div>
