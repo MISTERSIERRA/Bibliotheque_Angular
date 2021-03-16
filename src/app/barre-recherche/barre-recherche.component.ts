@@ -1,3 +1,4 @@
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { DonneesServices } from '../services/donnees-services';
 import { Observable } from 'rxjs';
@@ -11,7 +12,7 @@ import { Subject } from 'rxjs';
 })
 export class BarreRechercheComponent implements OnInit {
 
-  constructor(private donneesServices: DonneesServices) { }
+  constructor(private donneesServices: DonneesServices, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,7 @@ export class BarreRechercheComponent implements OnInit {
     this.donneesServices.input_recherche = this.name;
     console.log("fonction 1 : " + this.donneesServices.input_recherche);
     this.donneesServices.mise_a_jour_du_guide();
+    this.router.navigate(['/accueil']);//retour accueil (import router,et router => constructeur)
     this.name = "";
   }
 
@@ -51,6 +53,7 @@ export class BarreRechercheComponent implements OnInit {
     this.donneesServices.input_recherche = this.name;
     console.log("fonction 3 : " + this.donneesServices.input_recherche);
     this.donneesServices.mise_a_jour_du_guide();
+    this.router.navigate(['/accueil']);//retour accueil (import router,et router => constructeur)
     this.name = "";
   }
 
