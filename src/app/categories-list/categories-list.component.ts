@@ -30,7 +30,11 @@ export class CategoriesListComponent implements OnInit {
     );
   }
 
-  
+ rechercheRedirection(jeClique) {
+  this.donneesServices.input_recherche = jeClique;
+  this.donneesServices.mise_a_jour_du_guide();
+    console.log("Je suis innocent") 
+ } 
 
 
 }
