@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { DonneesServices } from '../services/donnees-services';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
+
 
 @Component({
   selector: 'app-categorie-moblie',
@@ -7,9 +13,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategorieMoblieComponent implements OnInit {
 
-  constructor() { }
+  constructor(private donneesServices: DonneesServices, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+
+  callCategorieAlbum() {
+    console.log("catégorie album");
+    this.donneesServices.categorieAlbum();
+    //this.router.navigate(['/categories']);
+}
+
+callCategorieSerie() {
+  this.donneesServices.categorieSerie();
+  console.log("catégorie serie");
+  //this.router.navigate(['/categories']);
+}
+
+callCategorieAuteur() {
+  this.donneesServices.categorieAuteur();
+  console.log("catégorie auteur");
+  //this.router.navigate(['/categories']);
+}
 
 }

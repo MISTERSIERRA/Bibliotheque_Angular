@@ -816,7 +816,7 @@ constructor() {
   input_recherche = ""; // variable pour récupérer la valeur de input
   guideIndexSubject$ = new Subject<any>();//observable 1 pour déclencher rafraichissement d'affichage selon le nouveau guide
   categoriesBouton$ = new Subject<any>();//observable 2 pour déclencher rafraichissement page catégorie
-  tableauCategorie = ["Morceaux choisis !", "Contre attaque en Carmélie", "L'or des trolls", "L'étoile du matin"];
+  tableauCategorie = [];
   //compteur_nombre_recherche = 0;
 
   
@@ -988,7 +988,42 @@ constructor() {
     //la ligne next à la fin pour prendre tous les changements en compte
   }
 
+  //*************************************************************************
+  //function
+   categorieAlbum() {
+      console.log('button-album');
+      let tableauAlbums = [];
+      for (let recupListAlbums of this.albums) {
+        tableauAlbums.push(recupListAlbums[1].titre);
+        tableauAlbums.sort(); 
+      }
+      console.log(tableauAlbums);
+      this.tableauCategorie = tableauAlbums;   
+      this.categoriesBouton$.next();
+  }
 
+  categorieSerie() {
+      let serieAlbums = [];
+      for (let recupListSerie of this.series) {
+          serieAlbums.push(recupListSerie[1].nom);
+
+          serieAlbums.sort();
+      }
+      console.log(serieAlbums);
+      this.tableauCategorie = serieAlbums;  
+      this.categoriesBouton$.next(); 
+  }
+
+  categorieAuteur() {
+      let auteurAlbums = [];
+      for (let recupListAuteur of this.auteurs) {
+          auteurAlbums.push(recupListAuteur[1].nom);
+          auteurAlbums.sort();
+      }
+      console.log(auteurAlbums);
+      this.tableauCategorie = auteurAlbums; 
+      this.categoriesBouton$.next(); 
+  }
   //*************************************************************************
   
   

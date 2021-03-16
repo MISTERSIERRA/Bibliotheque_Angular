@@ -28,6 +28,7 @@ import { DetailLivreComponent } from './detail-livre/detail-livre.component';
 import { LoginComponent } from './login/login.component';
 import { AfficherCompteComponent } from './afficher-compte/afficher-compte.component';
 import { DetailMeteoComponent } from './detail-meteo/detail-meteo.component';
+import { CategoriesListComponent } from './categories-list/categories-list.component';
 
 const appRoutes: Routes = [
   //{ path: 'appareil', canActivate: [AuthGuard], component: AppareilViewComponent }, 
@@ -36,10 +37,12 @@ const appRoutes: Routes = [
   { path: 'afficherlogin', component: LoginComponent }, 
   { path: 'affichercompte', canActivate: [AuthGuard], component: AfficherCompteComponent }, 
   { path: 'afficherpanier', component: PagePanierComponent },
-  { path: 'detailMeteo', component: DetailMeteoComponent },  
+  { path: 'detailMeteo', component: DetailMeteoComponent },
+  { path: 'categories', component: CategoriesListComponent },  
   { path: '', component: BandeDessineComponent }, 
   { path: 'not-found', component: BandeDessineComponent }, 
   { path: '**', redirectTo: '/not-found' } /* celle la toujours en dernier */
+
 ];
 
 
@@ -58,7 +61,8 @@ const appRoutes: Routes = [
     DetailLivreComponent,
     LoginComponent,
     AfficherCompteComponent,
-    DetailMeteoComponent
+    DetailMeteoComponent,
+    CategoriesListComponent
   ],
   
   imports: [
