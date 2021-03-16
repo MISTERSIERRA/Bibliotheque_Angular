@@ -1,0 +1,43 @@
+*
+{
+	background-color: #7ea6c8;
+}
+img
+{
+	max-width: 100%;
+}
+body, tr, th, td
+{
+	box-sizing: border-box;
+	margin: 0px;
+	width: 100%;
+}
+
+p
+{
+	text-align: justify;
+	width: 100%;
+	color: black;
+}
+
+.bordure
+{
+	border: solid black 1px;
+}
+
+.back_blue
+{
+	background-color: #008080;
+}
+
+.long_tab
+{
+	min-width: 80px;
+	max-width: 200px;
+	text-align: left;
+}
+.centrage_GD
+{
+	margin-left: 30%;
+	max-width: 90%;
+}
