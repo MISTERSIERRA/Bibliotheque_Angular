@@ -816,9 +816,20 @@ constructor() {
   input_recherche = ""; // variable pour récupérer la valeur de input
   guideIndexSubject$ = new Subject<any>();//observable 1 pour déclencher rafraichissement d'affichage selon le nouveau guide
   categoriesBouton$ = new Subject<any>();//observable 2 pour déclencher rafraichissement page catégorie
+  etatMeteo$ = new Subject<any>();//observable 3 pour déclencher rafraichissement icone météo
+  url_icone_venant_de_la_requete = "assets/all-content/icons/meteoNuage.png";
   tableauCategorie = [];
   //compteur_nombre_recherche = 0;
 
+  //variables meteo
+  nom_ville = "ville";
+  date_de_la_requete = "";
+  cle_description = "-";
+  cle_temp_actuel = "Act : -";
+  cle_temp_max = "Max : -";
+  cle_temp_min = "Min : -";
+  cle_icone = "";
+  cle_url_icone = "assets/all-content/icons/meteoNuage.png";
   
   
   //declaration fonctions degre 1
@@ -1024,6 +1035,10 @@ constructor() {
       this.tableauCategorie = auteurAlbums; 
       this.categoriesBouton$.next(); 
   }
+
+  lancerChangementIcone() {
+      this.etatMeteo$.next();
+    }
   //*************************************************************************
   
   
