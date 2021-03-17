@@ -1,10 +1,12 @@
-<div>
-    <h1>METEO</h1>
+<div class="bloc-meteo">
+
+<div class="couleurMeteo mise-en-forme-arrondi container">
+    <br><h1>METEO</h1><br>
 
       <form id="form">
         <label id="value"><p>Choisissez une ville</p>
          <!--  <input type="text" id="value" placeholder="Saisissez un texte" /> -->
-         <select id="selection">
+         <select class="couleurMeteo mise-en-forme-arrondi" id="selection">
              <option value="paris">Paris</option>
              <option value="marseille">Marseille</option>
              <option value="lyon">Lyon</option>
@@ -24,16 +26,16 @@
              <option value="mulhouse">Mulhouse</option>
          </select>
         </label>
-        <input id="boutonEnvoyer" type="submit" value="OK" />
+        <input class="texte-en-gras couleurMeteo mise-en-forme-arrondi" id="boutonEnvoyer" (click)="lancerMeteo()" type="submit" value="OK" />
       </form><br />
-      <div><p id="result">ville</p></div>
+      <div><p class="texte-en-gras" id="result">{{ nom_ville }}</p></div>
 
     <table cellspacing="0">
 
       <thead  class="">
           <tr>
               <!-- <th colspan="">The table header</th> -->
-          <th colspan=""  class="long_tab bordure">J</th>
+          <th colspan=""  class="long_tab texte-en-gras">{{ cle_description }}</th>
           <!-- <th colspan=""  class="long_tab bordure">J + 1</th> -->
           <!-- <th colspan=""  class="long_tab bordure">J + 2</th> -->
           <!-- <th colspan=""  class="long_tab bordure">J + 3</th> -->
@@ -44,7 +46,7 @@
 
       <tbody class="">
       <tr class="ligne_meteo_0">
-          <td  class="long_tab bordure"><img /></td>
+          <td  class="long_tab"><img class="NGS_image_meteo" src="{{ cle_url_icone }}"></td>
           <!-- <td  class="long_tab bordure"><img /></td> -->
           <!-- <td  class="long_tab bordure"><img /></td> -->
           <!-- <td  class="long_tab bordure"><img /></td> -->
@@ -52,7 +54,7 @@
       </tr>
 
           <tr class="ligne_meteo_a">
-          <td  class="long_tab bordure">-</td>
+          <td  class="long_tab texte-en-gras">{{ cle_temp_actuel }}</td>
           <!-- <td  class="long_tab bordure">-</td> -->
           <!-- <td  class="long_tab bordure">-</td> -->
           <!-- <td  class="long_tab bordure">-</td> -->
@@ -60,14 +62,14 @@
           </tr>
 
       <tr class="ligne_meteo_1">
-          <td  class="long_tab bordure">-</td>
+          <td  class="long_tab texte-en-gras">{{ cle_temp_max }}</td>
           <!-- <td  class="long_tab bordure">-</td> -->
           <!-- <td  class="long_tab bordure">-</td> -->
           <!-- <td  class="long_tab bordure">-</td> -->
           <!-- <td  class="long_tab bordure">-</td> -->
       </tr>
       <tr class="ligne_meteo_2">
-          <td  class="long_tab bordure">-</td>
+          <td  class="long_tab texte-en-gras">{{ cle_temp_min }}</td>
           <!-- <td  class="long_tab bordure">-</td> -->
           <!-- <td  class="long_tab bordure">-</td> -->
           <!-- <td  class="long_tab bordure">-</td> -->
@@ -75,5 +77,7 @@
       </tr>
       </tbody>
 </table>
+<br>
+</div>
 
 </div>
