@@ -1,0 +1,281 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body  {
+    background-color: rgb(30,30,30);
+}
+
+.laPremiereDiv{
+    position: relative;
+    margin: auto;
+}
+
+.morty{
+  position:absolute;
+  top: 30px;
+  right: 170px;
+  width:0;
+  height:0;
+  
+}
+.hair{
+  position:absolute;
+  //left:590px;
+  left:295px;
+  //top:30px;
+  top:15px;
+  //width:270px;
+  width:135px;
+  //height:160px;
+  height:80px;
+  background:#8A4D18;
+  border-radius:50% 50% 20% 20%;
+  border: 3px solid ;
+}
+.face{
+  position:absolute;
+  //left:600px;
+  left:300px;
+  //top:70px;
+  top:35px;
+  //width:250px;
+  width:125px;
+  //height:250px;
+  height:125px;
+  background:#FFD2A1;
+  border-radius:47%;
+  border: 3px solid ;
+}
+.ears{
+  
+  position:absolute;
+  //left:576px;
+  left:288px;
+  //top:170px;
+  top:85px;
+  background:#FFD2A1;
+  //height:35px;
+  height:17.5px;
+  //width:30px;
+  width:15px;
+  border-radius:50% 10% 10% 50%;
+  border:2px solid;
+  
+}
+.ears::after{
+  content:"";
+  position:absolute;
+  //left:267px;
+  left:133.5px;
+  top:0px;
+  background:#FFD2A1;
+  //height:35px;
+  height:17.5px;
+  //width:30px;
+  width:15px;
+  border-radius:10% 50% 50% 10%;
+  border:2px solid;
+}
+.eyes{
+  position:absolute;
+  //top:130px;
+  top:65px;
+  //left:630px;
+  left:315px;
+  //width:70px;
+  width:35px;
+  //height:70px;
+  height:35px;
+  background:white;
+  border-radius:50%;
+  border: 2px solid ;
+  
+}
+.eyes::after{
+  content:"";
+  position:absolute;
+  top:0px;
+  //left:120px;
+  left:60px;
+  //width:70px;
+  width:35px;
+  //height:70px;
+  height:35px;
+  background:white;
+  border-radius:50%;
+  border: 2px solid ;
+}
+.eyes::before{
+  content:"";
+  position:absolute;
+  //top:33px;
+  top:16.5px;
+  //left:30px;
+  left:15px;
+  //width:10px;
+  width:5px;
+  //height:10px;
+  height:5px;
+  background:black;
+  border-radius:50%;
+  z-index:50;
+  box-shadow:58px 0px;
+  animation: anim2 2s infinite;
+  
+}
+.mouth{
+  position:absolute;
+  //top:250px;
+  top:125px;
+  //left:705px;
+  left:352.5px;
+  //height:20px;
+  height:10px;
+ //width:12px;
+ width:6px;
+ border:2px solid black;
+ border-top: 0px;
+ border-radius: 0px 0px 45px 45px;
+transform:rotatez(10deg);
+}
+.mouth::after{
+  content:"";
+  position:absolute;
+  //top:7px;
+  top:3.5px;
+  //left:11.5px;
+  left:5.75px;
+  //height:20px;
+  height:10px;
+  //width:12px;
+  width:6px;
+  border:2px solid black;
+  border-top: 0px;
+  border-radius: 0px 0px 45px 45px;
+  animation: anim .5s infinite;
+  transform-origin: -5% -10%;
+  
+}
+.nose{
+  position:absolute;
+  //top:200px;
+  top:100px;
+  //left:715px;
+  left:357.5px;
+  //height:20px;
+  height:10px;
+  //width:15px;
+  width:7.5px;
+  border:2px solid black;
+  border-top: 0px;
+  border-radius: 0px 0px 45px 45px;
+  transform:rotatez(0deg);
+}
+.lines{
+  position:absolute;
+  //top:116px;
+  top:58px;
+  //left:643px;
+  left:321.5px;
+  //height:2px;
+  height:1px;
+  //width:50px;
+  width:25px;
+  border:3.2px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-radius: 0px 0px 50% 50%;
+  transform:rotatez(170deg);
+}
+.lines::before{
+  content:"";
+  position:absolute;
+  //top:-22px;
+  top:-11px;
+  //right:120px;
+  right:60px;
+  //height:2px;
+  height:1px;
+  //width:50px;
+  width:25px;
+  border:3.2px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+border-radius: 0px 0px 50% 50%;
+  transform:rotatez(20deg);
+}
+h2{
+  position:absolute;
+  //top:100px;
+  top:50px;
+  //left:100px;
+  left:50px;
+  //left:200px;
+  margin:0px;
+  color:black;
+  //font-size:200px;
+  font-size:100px;
+  font-family: 'Roboto', sans-serif;
+}
+.four{
+  position:absolute;
+  //top:100px;
+  top:50px;
+  //left:550px;
+  left:275px;
+  //left:430px;
+  margin:0px;
+  color:black;
+  //font-size:200px;
+  font-size:100px;
+  font-family: 'Roboto', sans-serif;
+}
+h1{
+  position:absolute;
+  //top:400px;
+  top:200px;
+  //left:230px;
+  left:115px;
+  //left:270px;
+  margin:0px;
+  color:black;
+  //font-size:100px;
+  font-size:50px;
+  font-family: 'Roboto', sans-serif;
+}
+@keyframes anim{
+  0%{
+    transform:rotatez(0deg);
+  }
+  50%{
+    transform:rotatez(-10deg)
+  }
+  100%{
+    transform:rotatez(0deg)
+  }
+}
+@keyframes anim2{
+  0%{
+    transform:translatex(0px);
+  }
+  50%{
+    transform:translatex(10px);
+  }
+  100%{
+    transform:translatex(-10px);
+  }
+}
+h3{
+  position:absolute;
+  top:0px;
+  //left:210px;
+  left:105px;
+  //left:255px;
+  //font-size:50px;
+  font-size:25px;
+  font-family: 'Roboto', sans-serif;
+  color:black;
+  //width:400px;
+  width:200px;
+}
