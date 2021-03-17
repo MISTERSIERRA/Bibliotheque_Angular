@@ -39,6 +39,13 @@ export class BandeDessineComponent implements OnInit {
     //console.log("guide url mini : " + guide);
     return this.donneesServices.generer_url_mini(guide);
   }
+  appeler_generer_prix(guide) {
+    //console.log("guide prix : " + guide);
+    return this.donneesServices.recuperer_albums_un_prix(guide);
+  }
+  appeler_generer_url_grand(guide) {
+    return this.donneesServices.generer_url_grand(guide);
+  }
 
   ngOnInit() {
     this.surveillance_du_guide_Subscription = this.donneesServices.guideIndexSubject$.

@@ -830,7 +830,14 @@ constructor() {
   cle_temp_min = "Min : -";
   cle_icone = "";
   cle_url_icone = "assets/all-content/icons/meteoNuage.png";
-  
+
+  //variables details
+  nom_auteur = "";
+  titre_bd = "";
+  numero_bd = "";
+  numero_serie = "";
+  prix_bd = "";
+  url_grande_image = "assets/all-content/albums/pageblanche.jpg";
   
   //declaration fonctions degre 1
   
@@ -915,7 +922,6 @@ constructor() {
       return this.albums.get(guide_index).idAuteur;
   }
   //*************************************************************************
-  
   
   
   //declaration fonctions degre 2
