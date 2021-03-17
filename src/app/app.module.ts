@@ -1,6 +1,7 @@
 import { DonneesServices } from './services/donnees-services';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -70,7 +71,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     LayoutModule,
     FormsModule, 
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes), 
+    HttpClientModule
   ],
   providers: [
     DonneesServices, 

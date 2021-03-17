@@ -1,6 +1,14 @@
-*
+.couleurMeteo
 {
-	background-color: #7ea6c8;
+	background-color: #3ABEFF;
+}
+.texte-en-gras
+{
+	font-weight: bold;
+}
+.mise-en-forme-arrondi
+{
+	border-radius: 20px;
 }
 img
 {
@@ -40,4 +48,19 @@ p
 {
 	margin-left: 30%;
 	max-width: 90%;
+}
+.NGS_image_meteo
+{
+    max-width: 42px;
+    max-height: 42px;
+    filter: drop-shadow(0px 0px 1px #000);
+}
+.bloc-meteo
+{
+	min-width: 200px;
+	max-width: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
