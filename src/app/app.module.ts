@@ -30,6 +30,7 @@ import { LoginComponent } from './login/login.component';
 import { AfficherCompteComponent } from './afficher-compte/afficher-compte.component';
 import { DetailMeteoComponent } from './detail-meteo/detail-meteo.component';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 const appRoutes: Routes = [
   //{ path: 'appareil', canActivate: [AuthGuard], component: AppareilViewComponent }, 
@@ -41,7 +42,7 @@ const appRoutes: Routes = [
   { path: 'detailMeteo', component: DetailMeteoComponent },
   { path: 'categories', component: CategoriesListComponent },  
   { path: '', component: BandeDessineComponent }, 
-  { path: 'not-found', component: BandeDessineComponent }, 
+  { path: 'not-found', component: FourOhFourComponent }, 
   { path: '**', redirectTo: '/not-found' } /* celle la toujours en dernier */
 
 ];
@@ -63,7 +64,8 @@ const appRoutes: Routes = [
     LoginComponent,
     AfficherCompteComponent,
     DetailMeteoComponent,
-    CategoriesListComponent
+    CategoriesListComponent,
+    FourOhFourComponent
   ],
   
   imports: [
