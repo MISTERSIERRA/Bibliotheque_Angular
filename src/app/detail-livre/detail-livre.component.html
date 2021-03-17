@@ -9,26 +9,26 @@
 
 
                     <!--DIV Parent1-->
-                     <div class="panel-body d-flex">
+                     <div class="panel-body d-flex tailleMiniParDefaut">
 
                       <!--DIV Enfant1-->
-                    <div class="bordure-image"><img class="col tailleDeImage" src="assets/all-content/albums/Boule et bill-13-Album 13.jpg"></div>
+                    <div class="bordure-image"><img class="col tailleDeImage" src="{{url_grande_image}}"></div>
                      <!--DIV Enfant2-->
                     <div class="bordure-image text-center">
                             <div class="radio  bordure-gauche col">
-                                 Nom de l'Auteur
+                                 Nom de l'Auteur: {{nom_auteur}}
                             </div>
                             <div class="radio">
-                                Titre du Livre
+                                Titre du Livre: {{titre_bd}}
                             </div>
                             <div class="radio">
-                                Numéro de TOME
+                                Numéro de TOME: {{numero_bd}}
                           </div>
                           <div class="radio">
-                               Serie
+                               Serie: {{numero_serie}}
                          </div>
                          <div class="radio">
-                               Prix
+                               Prix: {{prix_bd}}
                          </div>
                          <button class="btn btn-outline-warning">Ajouter au panier</button>
                     </div> 
