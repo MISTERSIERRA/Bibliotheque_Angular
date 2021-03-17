@@ -15,6 +15,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.authStatus = this.authService.isAuth;
+    if (this.authStatus === true) {
+      this.router.navigate(['affichercompte']);
+    }
   }
 
   onSignIn() {
