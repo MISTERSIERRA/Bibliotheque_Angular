@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 interface ISerie {
     nom: string;
@@ -814,8 +814,8 @@ constructor() {
   //declaration variables
   guide_index_for = [];
   input_recherche = ""; // variable pour récupérer la valeur de input
-  guideIndexSubject$ = new Subject<any>();//observable 1 pour déclencher rafraichissement d'affichage selon le nouveau guide
-  categoriesBouton$ = new Subject<any>();//observable 2 pour déclencher rafraichissement page catégorie
+  guideIndexSubject$ = new BehaviorSubject<any>("1");//observable 1 pour déclencher rafraichissement d'affichage selon le nouveau guide
+  categoriesBouton$ = new BehaviorSubject<any>(0);//observable 2 pour déclencher rafraichissement page catégorie
   etatMeteo$ = new Subject<any>();//observable 3 pour déclencher rafraichissement icone météo
   url_icone_venant_de_la_requete = "assets/all-content/icons/meteoNuage.png";
   tableauCategorie = [];
@@ -959,8 +959,20 @@ constructor() {
       return tableau_des_match_corrige;
   }
   //*************************************************************************
+  string_to_slug(str) {
+    return str
+        .toString()                     // Cast to string
+        .toLowerCase()                  // Convert the string to lowercase letters
+        .normalize('NFD')       // The normalize() method returns the Unicode Normalization Form of a given string.
+        .trim()                         // Remove whitespace from both sides of a string
+        .replace(/\s+/g, '-')           // Replace spaces with -
+        .replace(/[^\w^.\-]+/g, '')       // Remove all non-word chars
+        .replace(/\-\-+/g, '-');        // Replace multiple - with single -
+  }
+  //*************************************************************************
+
   generer_url_mini(guide_index) {
-      const url_mini = "assets/all-content/albumsMini/" + 
+      const url_mini = 
       this.recuperer_series_un_nom(this.recuperer_albums_un_idSerie(guide_index)) + "-" + 
       this.recuperer_albums_un_numero(guide_index) + "-" + 
       this.recuperer_albums_un_titre(guide_index) + ".jpg";
@@ -971,7 +983,8 @@ constructor() {
       replace("I.R.$.", "IR").replace("Inc.", "Inc").replace(":", "").
       replace("Le rédempteur-01-Tome 1.jpg", "Le rédempteur-01-tome 1.jpg").
       replace("O.P.A.", "OPA").replace("I.N.R.I.", "INRI");
-      return url_mini_corrige;
+      const url_mini_corrige_V2 = "assets/all-content/albumsMini/" + this.string_to_slug(url_mini_corrige);
+      return url_mini_corrige_V2;
   }
   //*************************************************************************
     generer_nom_auteurs(guide_index) {
@@ -982,7 +995,7 @@ constructor() {
     }
   //*************************************************************************
   generer_url_grand(guide_index) {
-      const url_grand = "assets/all-content/albums/" + 
+      const url_grand = 
       this.recuperer_series_un_nom(this.recuperer_albums_un_idSerie(guide_index)) + "-" + 
       this.recuperer_albums_un_numero(guide_index) + "-" + 
       this.recuperer_albums_un_titre(guide_index) + ".jpg";
@@ -993,7 +1006,8 @@ constructor() {
       replace("I.R.$.", "IR").replace("Inc.", "Inc").replace(":", "").
       replace("Le rédempteur-01-Tome 1.jpg", "Le rédempteur-01-tome 1.jpg").
       replace("O.P.A.", "OPA").replace("I.N.R.I.", "INRI");
-      return url_grand_corrige;
+      const url_grand_corrige_V2 = "assets/all-content/albums/" + this.string_to_slug(url_grand_corrige);
+      return url_grand_corrige_V2;
   }
 
   //fonction pour observable
@@ -1001,7 +1015,7 @@ constructor() {
     console.log("maj du guide");
     //this.compteur_nombre_recherche += 1;
     this.guide_index_for = this.rechercher_un_mot(this.input_recherche);
-    this.guideIndexSubject$.next(); //(this.compteur_nombre_recherche)
+    this.guideIndexSubject$.next("2"); //(this.compteur_nombre_recherche)
     //la ligne next à la fin pour prendre tous les changements en compte
   }
 
@@ -1016,7 +1030,7 @@ constructor() {
       }
       console.log(tableauAlbums);
       this.tableauCategorie = tableauAlbums;   
-      this.categoriesBouton$.next();
+      this.categoriesBouton$.next(0);
   }
 
   categorieSerie() {
@@ -1028,7 +1042,7 @@ constructor() {
       }
       console.log(serieAlbums);
       this.tableauCategorie = serieAlbums;  
-      this.categoriesBouton$.next(); 
+      this.categoriesBouton$.next(0); 
   }
 
   categorieAuteur() {
@@ -1039,7 +1053,7 @@ constructor() {
       }
       console.log(auteurAlbums);
       this.tableauCategorie = auteurAlbums; 
-      this.categoriesBouton$.next(); 
+      this.categoriesBouton$.next(0); 
   }
 
   lancerChangementIcone() {
