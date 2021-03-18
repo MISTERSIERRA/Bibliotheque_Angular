@@ -819,6 +819,8 @@ constructor() {
   etatMeteo$ = new Subject<any>();//observable 3 pour déclencher rafraichissement icone météo
   url_icone_venant_de_la_requete = "assets/all-content/icons/meteoNuage.png";
   tableauCategorie = [];
+  
+
   //compteur_nombre_recherche = 0;
 
   //variables meteo
@@ -830,6 +832,7 @@ constructor() {
   cle_temp_min = "Min : -";
   cle_icone = "";
   cle_url_icone = "assets/all-content/icons/meteoNuage.png";
+  livreNumeroGuide = "";
 
   //variables details
   nom_auteur = "";

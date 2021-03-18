@@ -13,23 +13,27 @@
 
 
                     <!--DIV Parent1-->
-                     <div class="panel-body d-flex">
+                     <div *ngFor="let articleAjouter of tableauArticleAjouter" class="panel-body d-flex">
 
                       <!--DIV Enfant1-->
-                    <div class="bordure-image"><img class="" src="assets/all-content/albumsMini/Boule et bill-13-Album 13.jpg"></div>
+                    <div class="bordure-image"><img class="" src="{{imageBlanche}}"></div>
                      <!--DIV Enfant2-->
                     <div class="bordure-image2">
                             <div class="radio  bordure-gauche col">
-                                 Albums
+                                 {{varQuantiteAlbums()}}
                             </div>
                             <div class="radio">
-                                Series
+                                {{varQuantiteSeries()}}
                             </div>
                             <div class="radio">
-                                Auteurs
+                                {{varQuantiteAuteurs()}}
                           </div>
+                          <div class="radio">
+                                {{varQuantitePrix()}}
+                         </div>
                     </div> 
-                </div>   
+                
+
                     <!--DIV Enfant3-->
                     <div class="maClasseVertical">
                         
@@ -44,10 +48,12 @@
                         
                             <div class="">
                             <!--<input class="ajusterTailleInput" type="string">-->
-                            <h3 class="text-center">2</h3>
+                            <h3 class="text-center">{{varQuantiteArticle()}}</h3>
                            </div>
                     </div>   
                     </div>
+
+                </div>    
 
                       
                     
@@ -71,8 +77,8 @@
                           <h3> Total</h3>
                       </div>
                       <div class="panel-body">
-                          <h3>Nombres d'article: 200</h3>
-                          <h3>Montant: 25 Euros</h3> 
+                          <h3>Nombres d'article: 4</h3>
+                          <h3>Montant: 48.92 Euros</h3> 
                       </div>
                   </div>
 
