@@ -31,5 +31,6 @@ export class MiniatureMiniComponent implements OnInit {
     this.donneesServices.numero_serie = this.recuplivreSerie;
     this.donneesServices.prix_bd = this.prix;
     this.donneesServices.url_grande_image = this.recuplivreSRCgrandeImages; 
+    this.donneesServices.livreNumeroGuide = this.livreNumeroGuide;
   }
 }

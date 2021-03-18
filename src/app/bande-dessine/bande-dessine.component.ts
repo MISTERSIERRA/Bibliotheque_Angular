@@ -57,6 +57,7 @@ export class BandeDessineComponent implements OnInit {
         //console.log(typeof(nouveau_guide.slice()));
         //console.log(typeof(this.recup_guide_index_for.slice()));
         this.recup_guide_index_for = this.donneesServices.guide_index_for;
+        console.log('rafraichir la page principal');
         console.log(this.recup_guide_index_for);
       }, //pour chaque next 
 

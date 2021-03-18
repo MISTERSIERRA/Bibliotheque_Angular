@@ -27,5 +27,8 @@ export class DetailLivreComponent implements OnInit {
     this.url_grande_image = this.donneesServices.url_grande_image;
   }
 
-
+  ajoutAuPanier() {
+    console.log('BIP-BIP');
+    
+  }
 }
