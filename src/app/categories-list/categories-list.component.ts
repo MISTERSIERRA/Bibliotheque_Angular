@@ -15,7 +15,7 @@ export class CategoriesListComponent implements OnInit {
   leTableauTest = [];
 
   constructor(private donneesServices: DonneesServices) {
-    this.leTableauTest = this.donneesServices.tableauCategorie;
+    //this.leTableauTest = this.donneesServices.tableauCategorie;
   }
 
   ngOnInit() {
