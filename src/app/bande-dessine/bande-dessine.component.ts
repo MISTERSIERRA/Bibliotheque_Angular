@@ -48,6 +48,7 @@ export class BandeDessineComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("susbcribe");
     this.surveillance_du_guide_Subscription = this.donneesServices.guideIndexSubject$.
     subscribe(
 
