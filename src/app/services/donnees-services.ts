@@ -816,10 +816,94 @@ constructor() {
   input_recherche = ""; // variable pour récupérer la valeur de input
   guideIndexSubject$ = new BehaviorSubject<any>("1");//observable 1 pour déclencher rafraichissement d'affichage selon le nouveau guide
   categoriesBouton$ = new BehaviorSubject<any>(0);//observable 2 pour déclencher rafraichissement page catégorie
-  etatMeteo$ = new Subject<any>();//observable 3 pour déclencher rafraichissement icone météo
+  etatMeteo$ = new BehaviorSubject<any>(0);//observable 3 pour déclencher rafraichissement icone météo
+  etatPanier$ = new BehaviorSubject<any>(0);//observable 4 pour déclencher rafraichissement panier
   url_icone_venant_de_la_requete = "assets/all-content/icons/meteoNuage.png";
   tableauCategorie = [];
   
+  //variables panier
+  ajout_panier = new Map();
+  tableauArticleAjouter = [];
+  existencePanier: boolean = false;
+  nombreTotalNotification = 0;
+
+  //this.nombreTotalNotification = this.calcul_notification();
+
+  calcul_notification() {
+    let nombreTotal = 0;
+    if (this.ajout_panier.size < 1) {
+    nombreTotal = 0;
+  }
+    else {
+        for (let indexMap of this.ajout_panier) {
+            nombreTotal += indexMap[1].quantite;
+        }
+    }
+    return nombreTotal;
+  }
+
+  ajouter_article(guide: any) {
+    //this.ajout_panier.get(guide).quantite; => bug
+    if (this.ajout_panier.get(guide) == undefined)
+    {
+    const leTitre = this.recuperer_albums_un_titre(guide);
+    const laSerie = this.generer_nom_series(guide);
+    const lAuteur = this.generer_nom_auteurs(guide);
+    const lePrix = this.recuperer_albums_un_prix(guide);
+    const url_mini = this.generer_url_mini(guide);
+    console.log("nouvel article");
+    this.ajout_panier.set(guide, {titre: leTitre, serie: laSerie, 
+    auteur: lAuteur, prixUnitaire: lePrix, quantite: 1, 
+    prixSomme: lePrix, url: url_mini});
+    console.log(this.ajout_panier.get(guide).quantite);
+    }
+  else
+    {
+      console.log("quantité + 1");
+      this.ajout_panier.get(guide).quantite += 1;
+      this.ajout_panier.get(guide).prixSomme = this.calculPrix(this.ajout_panier.get(guide).prixUnitaire, this.ajout_panier.get(guide).quantite);
+      console.log(this.ajout_panier.get(guide).quantite);
+    }
+    this.tableauArticleAjouter = this.recuperer_toutes_les_cles(this.ajout_panier);
+    this.existencePanier = true;
+    this.nombreTotalNotification = this.calcul_notification();
+    this.etatPanier$.next(0);
+    console.log(this.ajout_panier);
+  }
+
+  reduire_panier(guide: any) {
+    
+    if (this.ajout_panier.get(guide).quantite > 1)
+    {
+        this.ajout_panier.get(guide).quantite -= 1;
+        this.ajout_panier.get(guide).prixSomme = this.calculPrix(this.ajout_panier.get(guide).prixUnitaire, this.ajout_panier.get(guide).quantite);
+        this.nombreTotalNotification = this.calcul_notification();
+        this.etatPanier$.next(1);
+    }
+    console.log(this.ajout_panier.get(guide).quantite);
+    console.log(this.ajout_panier);
+    console.log(this.tableauArticleAjouter);
+  }
+
+  supprimer_article(guide: any) {
+    this.ajout_panier.delete(guide);
+    this.tableauArticleAjouter = this.recuperer_toutes_les_cles(this.ajout_panier);
+    if (this.tableauArticleAjouter.length == 0) {this.existencePanier = false;}
+    this.nombreTotalNotification = this.calcul_notification();
+    this.etatPanier$.next(2);
+    console.log(this.ajout_panier);
+    console.log(this.tableauArticleAjouter);
+  }
+
+  vider_panier() {
+    this.ajout_panier.clear();
+    this.tableauArticleAjouter = this.recuperer_toutes_les_cles(this.ajout_panier);
+    if (this.tableauArticleAjouter.length == 0) {this.existencePanier = false;}
+    this.nombreTotalNotification = this.calcul_notification();
+    this.etatPanier$.next(3);
+    console.log(this.ajout_panier);
+    console.log(this.tableauArticleAjouter);
+  }
 
   //compteur_nombre_recherche = 0;
 
@@ -832,9 +916,10 @@ constructor() {
   cle_temp_min = "Min : -";
   cle_icone = "";
   cle_url_icone = "assets/all-content/icons/meteoNuage.png";
-  livreNumeroGuide = "";
+  
 
   //variables details
+  livreNumeroGuide = "";
   nom_auteur = "";
   titre_bd = "";
   numero_bd = "";
@@ -846,7 +931,7 @@ constructor() {
   
   //*************************************************************************
   //fonction récupérer les clés Map vers un tableau
-  recuperer_toutes_les_cles(conteneur_en_map) {
+  recuperer_toutes_les_cles(conteneur_en_map: any) {
       //console.log(conteneur_en_map.size);
       const conteneur_numerique = [];
       for (let indexMap of conteneur_en_map) {
@@ -865,7 +950,7 @@ constructor() {
   }
   //*************************************************************************
   //fonction récupérer les noms Map vers un tableau
-  afficher_tous_les_titres(conteneur_en_map) {
+  afficher_tous_les_titres(conteneur_en_map: any) {
       console.log(conteneur_en_map.size);
       let conteneur_numerique = [];
       for (let indexMap of conteneur_en_map) {
@@ -875,7 +960,7 @@ constructor() {
   }
   //*************************************************************************
   //fonction convertir texte avant comparaison => enlever des caractères, => mettre en minuscule
-  conversion_texte(texte) {
+  conversion_texte(texte: any) {
       return texte.
       replace(/ |,|\(|\)|\.|\'/g, "").replace(/à|â|ä/g, "a").replace(/é|è|ê|ë/g, "e").
       replace(/î|ï/g, "i").replace(/ô|ö/g, "o").replace(/ù|û|ü/g, "u").replace(/ç/g, "c").
@@ -892,45 +977,51 @@ constructor() {
   }
   //*************************************************************************
   //fonction verifier la presence lettres dans un string => return true / false
-  comparateur_de_match(recherche, lecture) {
+  comparateur_de_match(recherche: any, lecture: any) {
       const valeur_resultat = lecture.search(recherche);
       return valeur_resultat > -1;
   }
   //*************************************************************************
-  recuperer_series_un_nom(guide_index) {
+  recuperer_series_un_nom(guide_index: any) {
       return this.series.get(guide_index).nom;
   }
   //*************************************************************************
-  recuperer_auteurs_un_nom(guide_index) {
+  recuperer_auteurs_un_nom(guide_index: any) {
       return this.auteurs.get(guide_index).nom;
   }
   //*************************************************************************
-  recuperer_albums_un_titre(guide_index) {
+  recuperer_albums_un_titre(guide_index: any) {
       return this.albums.get(guide_index).titre;
   }
   //*************************************************************************
-  recuperer_albums_un_numero(guide_index) {
+  recuperer_albums_un_numero(guide_index: any) {
       return this.albums.get(guide_index).numero;
   }
   //*************************************************************************
-  recuperer_albums_un_prix(guide_index) {
+  recuperer_albums_un_prix(guide_index: any) {
       return this.albums.get(guide_index).prix;
   }
   //*************************************************************************
-  recuperer_albums_un_idSerie(guide_index) {
+  recuperer_albums_un_idSerie(guide_index: any) {
       return this.albums.get(guide_index).idSerie;
   }
   //*************************************************************************
-  recuperer_albums_un_idAuteur(guide_index) {
+  recuperer_albums_un_idAuteur(guide_index: any) {
       return this.albums.get(guide_index).idAuteur;
   }
   //*************************************************************************
-  
+  calculPrix(prix: any, quantite: any) {
+    const nouveauPrix = parseFloat(prix) * quantite;
+    return nouveauPrix.toFixed(2).toString();
+  }
+
+
+  //*************************************************************************
   
   //declaration fonctions degre 2
   
   //*************************************************************************
-  rechercher_un_mot(recherche) {
+  rechercher_un_mot(recherche: any) {
       const input_corrige = this.conversion_texte(recherche);
       let tableau_des_match = [];
       let tableau_des_series = [];
@@ -962,7 +1053,7 @@ constructor() {
       return tableau_des_match_corrige;
   }
   //*************************************************************************
-  string_to_slug(str) {
+  string_to_slug(str: any) {
     return str
         .toString()                     // Cast to string
         .toLowerCase()                  // Convert the string to lowercase letters
@@ -974,7 +1065,7 @@ constructor() {
   }
   //*************************************************************************
 
-  generer_url_mini(guide_index) {
+  generer_url_mini(guide_index: any) {
       const url_mini = 
       this.recuperer_series_un_nom(this.recuperer_albums_un_idSerie(guide_index)) + "-" + 
       this.recuperer_albums_un_numero(guide_index) + "-" + 
@@ -990,14 +1081,14 @@ constructor() {
       return url_mini_corrige_V2;
   }
   //*************************************************************************
-    generer_nom_auteurs(guide_index) {
+    generer_nom_auteurs(guide_index: any) {
     return this.recuperer_auteurs_un_nom(this.recuperer_albums_un_idAuteur(guide_index));
     }
-    generer_nom_series(guide_index) {
+    generer_nom_series(guide_index: any) {
     return this.recuperer_series_un_nom(this.recuperer_albums_un_idSerie(guide_index));
     }
   //*************************************************************************
-  generer_url_grand(guide_index) {
+  generer_url_grand(guide_index: any) {
       const url_grand = 
       this.recuperer_series_un_nom(this.recuperer_albums_un_idSerie(guide_index)) + "-" + 
       this.recuperer_albums_un_numero(guide_index) + "-" + 
@@ -1060,7 +1151,7 @@ constructor() {
   }
 
   lancerChangementIcone() {
-      this.etatMeteo$.next();
+      this.etatMeteo$.next(0);
     }
   //*************************************************************************
   
