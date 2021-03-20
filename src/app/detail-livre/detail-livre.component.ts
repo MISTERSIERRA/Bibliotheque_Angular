@@ -10,6 +10,7 @@ export class DetailLivreComponent implements OnInit {
 
   constructor(private donneesServices: DonneesServices) { }
 
+  livreNumeroGuide = "";
   nom_auteur = "";
   titre_bd = "";
   numero_bd = "";
@@ -19,6 +20,7 @@ export class DetailLivreComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.livreNumeroGuide = this.donneesServices.livreNumeroGuide;
     this.nom_auteur = this.donneesServices.nom_auteur;
     this.titre_bd = this.donneesServices.titre_bd;
     this.numero_bd = this.donneesServices.numero_bd;
@@ -28,7 +30,7 @@ export class DetailLivreComponent implements OnInit {
   }
 
   ajoutAuPanier() {
-    console.log('BIP-BIP');
-    
+    console.log('detection ajout');
+    this.donneesServices.ajouter_article(this.livreNumeroGuide);
   }
 }

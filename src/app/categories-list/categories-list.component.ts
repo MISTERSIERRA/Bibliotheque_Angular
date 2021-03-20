@@ -22,7 +22,7 @@ export class CategoriesListComponent implements OnInit {
     this.surveillance_bouton_Subscription = this.donneesServices.categoriesBouton$.subscribe(
         () => {
           this.leTableauTest = this.donneesServices.tableauCategorie;
-          console.log("test");
+          //console.log("test");
           console.log(this.donneesServices.tableauCategorie);
         },
         () => {console.log("erreur de subscribe");}, //en cas d'erreur

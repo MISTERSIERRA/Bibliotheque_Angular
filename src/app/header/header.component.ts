@@ -14,7 +14,21 @@ export class HeaderComponent implements OnInit {
 
   constructor(private donneesServices: DonneesServices) { }
 
+  surveillance_TotalNotification: Subscription;
+
+  nombreTotalNotification = 0;
+
   ngOnInit(): void {
+    this.surveillance_TotalNotification = this.donneesServices.etatPanier$.
+    subscribe(
+
+      (nouveau_guide) => {
+        this.nombreTotalNotification = this.donneesServices.nombreTotalNotification;
+      }, //pour chaque next 
+
+      () => {console.log("erreur de subscribe");}, //en cas d'erreur
+      () => {console.log("subscribe terminé");} //en cas de complet
+    );
   }
 
   onCategorieSubmitted() {
